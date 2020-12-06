@@ -1,48 +1,60 @@
 import os
-from flask import Flask, request, jsonify, abort
+from flask import Flask, request, jsonify, abort, redirect
 from sqlalchemy import exc
 import json
 from flask_cors import CORS
 
-from .database.models import db_drop_and_create_all, setup_db, Drink
+from .database.models import db_drop_and_create_all, setup_db, Movie, Actor
 from .auth.auth import AuthError, requires_auth
+from functools import wraps
+import json
+from os import environ as env
+from werkzeug.exceptions import HTTPException
+
+from dotenv import load_dotenv, find_dotenv
+
+from flask import render_template
+from flask import session
+from flask import url_for
+from authlib.integrations.flask_client import OAuth
+from six.moves.urllib.parse import urlencode
+
 
 app = Flask(__name__)
 setup_db(app)
 CORS(app)
+oauth = OAuth(app)
 
-'''
-@TODO uncomment the following line to initialize the datbase
-!! NOTE THIS WILL DROP ALL RECORDS AND START YOUR DB FROM SCRATCH
-!! NOTE THIS MUST BE UNCOMMENTED ON FIRST RUN
-'''
+auth0 = oauth.register(
+    'auth0',
+    client_id='6GgkbfV45KVhO5kc6jq3Ot7itvpXW98j',
+    client_secret='LX04ZbMM61z27IakrzoilR6Co5qpezk17iuYkBYZ_2et8Dx4iGKS1dCCZbEMWUyZ',
+    api_base_url='https://heilafsnd.us.auth0.com',
+    access_token_url='https://heilafsnd.us.auth0.com/oauth/token',
+    authorize_url='https://heilafsnd.us.auth0.com/authorize',
+    client_kwargs={
+        'scope': 'openid profile email',
+    },
+)
+
+
 db_drop_and_create_all()
 
-# ROUTES
-'''
-@TODO implement endpoint
-    GET /drinks
-        it should be a public endpoint
-        it should contain only the drink.short() data representation
-    returns status code 200 and json {"success": True, "drinks": drinks} where drinks is the list of drinks
-        or appropriate status code indicating reason for failure
-'''
 
-
-@app.route('/drinks', methods=['GET'])
-def get_drinks():
+@app.route('/movies', methods=['GET'])
+@requires_auth('get:movies')
+def get_movies(jwt):
     """
     Returns:
-        The list of all drinks in short representation
+        The list of all movies
     """
     try:
 
-        # Fetch all drinks
-        drinks = Drink.query.all()
+        movies = Movie.query.all()
 
         return jsonify({
             'success': True,
-            "drinks": [drink.short() for drink in drinks]
+            "movies": [movie.id for movie in movies]
         })
     except Exception as e:
         print(e)
@@ -51,33 +63,19 @@ def get_drinks():
         })
 
 
-'''
-@TODO implement endpoint
-    GET /drinks-detail
-        it should require the 'get:drinks-detail' permission
-        it should contain the drink.long() data representation
-    returns status code 200 and json {"success": True, "drinks": drinks} where drinks is the list of drinks
-        or appropriate status code indicating reason for failure
-'''
-
-
-@app.route('/drinks-detail', methods=['GET'])
-@requires_auth('get:drinks-detail')
-def get_drinks_detail(jwt):
+@app.route('/actors', methods=['GET'])
+@requires_auth('get:actors')
+def get_actors(jwt):
     """
     Returns:
-        The list of all drinks in long representation
+        The list of all actors
     """
     try:
-        # Fetch all drinks
-        drinks = Drink.query.all()
-        print('drinks are')
-        print(drinks)
+        actors = Actor.query.all()
 
         return jsonify({
             'success': True,
-            "drinks": [drink.long()
-                       for drink in drinks]
+            "actors": [actor.id for actor in actors]
         })
     except Exception as e:
         print(e)
@@ -86,36 +84,23 @@ def get_drinks_detail(jwt):
         })
 
 
-'''
-@TODO implement endpoint
-    POST /drinks
-        it should create a new row in the drinks table
-        it should require the 'post:drinks' permission
-        it should contain the drink.long() data representation
-    returns status code 200 and json {"success": True, "drinks": drink} where drink an array containing only the newly created drink
-        or appropriate status code indicating reason for failure
-'''
-
-
-@app.route('/drinks', methods=['POST'])
-@requires_auth('post:drinks')
-def post_drinks(jwt):
+@app.route('/movies', methods=['POST'])
+@requires_auth('post:movies')
+def post_movie(jwt):
     """
     Returns:
-        The object of newly created drink
+        The object of newly created movie
     """
     try:
-        # attributes of the new drink
         title = request.json['title']
-        recipe = request.json['recipe']
+        release_date = request.json['release_date']
 
-        # Create the new drink with attributes
-        nDrink = Drink(title=title, recipe=json.dumps(recipe))
-        nDrink.insert()
+        nMovie = Movie(title=title, release_date=release_date)
+        nMovie.insert()
 
         return jsonify({
             'success': True,
-            'drinks': nDrink.long()
+            'movie': nMovie
         })
 
     except Exception as e:
@@ -125,49 +110,60 @@ def post_drinks(jwt):
         })
 
 
-'''
-@TODO implement endpoint
-    PATCH /drinks/<id>
-        where <id> is the existing model id
-        it should respond with a 404 error if <id> is not found
-        it should update the corresponding row for <id>
-        it should require the 'patch:drinks' permission
-        it should contain the drink.long() data representation
-    returns status code 200 and json {"success": True, "drinks": drink} where drink an array containing only the updated drink
-        or appropriate status code indicating reason for failure
-'''
+@app.route('/actors', methods=['POST'])
+@requires_auth('post:actors')
+def post_actor(jwt):
+    """
+    Returns:
+        The object of newly created actor
+    """
+    try:
+
+        name = request.json['name']
+        age = request.json['age']
+        gender = request.json['gender']
+
+        nActor = Actor(name=name, age=age, gender=gender)
+        nActor.insert()
+
+        return jsonify({
+            'success': True,
+            'actor': nActor
+        })
+
+    except Exception as e:
+        print(e)
+        return jsonify({
+            'success': False,
+        })
 
 
-@app.route('/drinks/<int:id>', methods=['PATCH'])
-@requires_auth('post:drinks')
-def patch_drink(jwt, id):
+@app.route('/movies/<int:id>', methods=['PATCH'])
+@requires_auth('patch:movies')
+def patch_movie(jwt, id):
     """
     Args
-        The id of the drink to be edited
+        The id of the movie to be edited
     Returns:
-        The edited drink object
+        The edited movie object
     """
     try:
-
-        # Fetch new data
         body = request.get_json()
         ntitle = body.get('title', None)
-        nrecipe = json.dumps(body.get('recipe', None))
+        nrelease = body.get('release_date', None)
 
-        # Get drink
-        drink = Drink.query.filter(Drink.id == id).one_or_none()
+        movie = Movie.query.filter(Movie.id == id).one_or_none()
 
         if not ntitle == 'null':
-            drink.title = ntitle
-        if not nrecipe == 'null':
-            drink.recipe = nrecipe
+            movie.title = ntitle
+        if not nrelease == 'null':
+            movie.release_date = nrelease
 
-        # Update drink data
-        drink.update()
+        movie.update()
 
         return jsonify({
             'success': True,
-            'drinks': [drink.long()]
+            'movie': movie
         })
 
     except Exception as e:
@@ -177,30 +173,56 @@ def patch_drink(jwt, id):
         })
 
 
-'''
-@TODO implement endpoint
-    DELETE /drinks/<id>
-        where <id> is the existing model id
-        it should respond with a 404 error if <id> is not found
-        it should delete the corresponding row for <id>
-        it should require the 'delete:drinks' permission
-    returns status code 200 and json {"success": True, "delete": id} where id is the id of the deleted record
-        or appropriate status code indicating reason for failure
-'''
-
-
-@app.route('/drinks/<int:id>', methods=['DELETE'])
-@requires_auth('post:drinks')
-def delete_drink(jwt, id):
+@app.route('/actors/<int:id>', methods=['PATCH'])
+@requires_auth('patch:actors')
+def patch_actor(jwt, id):
     """
     Args
-        The id of the drink to be deleted
+        The id of the actor to be edited
     Returns:
-        The id of the deleted drink
+        The edited actor object
     """
     try:
-        drink = Drink.query.filter(Drink.id == id).one_or_none()
-        drink.delete()
+        body = request.get_json()
+        nname = body.get('name', None)
+        nage = body.get('age', None)
+        ngender = body.get('gender', None)
+
+        actor = Actor.query.filter(Actor.id == id).one_or_none()
+
+        if not nname == 'null':
+            actor.name = nname
+        if not nage == 'null':
+            actor.age = nage
+        if not ngender == 'null':
+            actor.gender = ngender
+
+        actor.update()
+
+        return jsonify({
+            'success': True,
+            'actor': actor
+        })
+
+    except Exception as e:
+        print(e)
+        return jsonify({
+            'success': False,
+        })
+
+
+@app.route('/movies/<int:id>', methods=['DELETE'])
+@requires_auth('delete:movies')
+def delete_movie(jwt, id):
+    """
+    Args
+        The id of the movie to be deleted
+    Returns:
+        The id of the deleted movie
+    """
+    try:
+        movie = Movie.query.filter(Movie.id == id).one_or_none()
+        movie.delete()
 
         return jsonify({
             'success': True,
@@ -214,7 +236,32 @@ def delete_drink(jwt, id):
         })
 
 
+@app.route('/actors/<int:id>', methods=['DELETE'])
+@requires_auth('delete:actors')
+def delete_actor(jwt, id):
+    """
+    Args
+        The id of the movie to be deleted
+    Returns:
+        The id of the deleted movie
+    """
+    try:
+        actor = Actor.query.filter(Actor.id == id).one_or_none()
+        actor.delete()
+
+        return jsonify({
+            'success': True,
+            "delete": id
+        })
+
+    except Exception as e:
+        print(e)
+        return jsonify({
+            'success': False,
+        })
+
 # Error Handling
+
 
 @app.errorhandler(422)
 def unprocessable(error):

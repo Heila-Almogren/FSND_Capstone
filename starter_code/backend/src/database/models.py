@@ -1,34 +1,37 @@
+from sqlalchemy.sql import case
+from sqlalchemy.ext.hybrid import hybrid_property
+from sqlalchemy import func
+from enum import Enum
+from flask_migrate import Migrate
+import dateutil.parser
+import babel
+from flask import Flask, render_template, request, Response, flash, redirect, url_for
+from flask_moment import Moment
+import logging
+from logging import Formatter, FileHandler
+from flask_wtf import Form
 import os
 from sqlalchemy import Column, String, Integer
 from flask_sqlalchemy import SQLAlchemy
 import json
+import datetime
+import os
 
-database_filename = "database.db"
-project_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = "sqlite:///{}".format(
-    os.path.join(project_dir, database_filename))
+
+SECRET_KEY = os.urandom(32)
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+
+DEBUG = True
 
 db = SQLAlchemy()
 
-'''
-setup_db(app)
-    binds a flask application and a SQLAlchemy service
-'''
-
 
 def setup_db(app):
-    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+    app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres@localhost:5432/agency'
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-
-
-'''
-db_drop_and_create_all()
-    drops the database tables and starts fresh
-    can be used to initialize a clean database
-    !!NOTE you can change the database_filename variable to have multiple verisons of a database
-'''
 
 
 def db_drop_and_create_all():
@@ -36,87 +39,38 @@ def db_drop_and_create_all():
     db.create_all()
 
 
-'''
-Drink
-a persistent drink entity, extends the base SQLAlchemy Model
-'''
-
-
-class Drink(db.Model):
-    # Autoincrementing, unique primary key
-    id = Column(Integer().with_variant(Integer, "sqlite"), primary_key=True)
-    # String Title
-    title = Column(String(80), unique=True)
-    # the ingredients blob - this stores a lazy json blob
-    # the required datatype is [{'color': string, 'name':string, 'parts':number}]
-    recipe = Column(String(180), nullable=False)
-
-    '''
-    short()
-        short form representation of the Drink model
-    '''
-
-    def short(self):
-        print(json.loads(self.recipe))
-        short_recipe = [{'color': r['color'], 'parts': r['parts']}
-                        for r in json.loads(self.recipe)]
-        return {
-            'id': self.id,
-            'title': self.title,
-            'recipe': short_recipe
-        }
-
-    '''
-    long()
-        long form representation of the Drink model
-    '''
-
-    def long(self):
-        return {
-            'id': self.id,
-            'title': self.title,
-            'recipe': json.loads(self.recipe)
-        }
-
-    '''
-    insert()
-        inserts a new model into a database
-        the model must have a unique name
-        the model must have a unique id or null id
-        EXAMPLE
-            drink = Drink(title=req_title, recipe=req_recipe)
-            drink.insert()
-    '''
+class Movie(db.Model):
+    __tablename__ = 'Movie'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String)
+    release_date = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
     def insert(self):
         db.session.add(self)
         db.session.commit()
 
-    '''
-    delete()
-        deletes a new model into a database
-        the model must exist in the database
-        EXAMPLE
-            drink = Drink(title=req_title, recipe=req_recipe)
-            drink.delete()
-    '''
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+
+class Actor(db.Model):
+    __tablename__ = 'Actor'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    age = db.Column(db.Integer)
+    gender = db.Column(db.String)
+
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
 
     def delete(self):
         db.session.delete(self)
         db.session.commit()
 
-    '''
-    update()
-        updates a new model into a database
-        the model must exist in the database
-        EXAMPLE
-            drink = Drink.query.filter(Drink.id == id).one_or_none()
-            drink.title = 'Black Coffee'
-            drink.update()
-    '''
-
     def update(self):
         db.session.commit()
-
-    def __repr__(self):
-        return json.dumps(self.short())
