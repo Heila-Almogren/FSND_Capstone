@@ -1,0 +1,762 @@
+{
+	"id": "9a3dbebb-28de-40ac-81fd-fd9478feea0b",
+	"name": "Casting_Agency-Tests",
+	"timestamp": "2020-12-08T21:00:58.721Z",
+	"collection_id": "ce58fe55-a8fe-47ab-91d5-a36aa54d5d4a",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 24,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "f3baaf6d-6892-4708-85a2-df7248239c00",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies",
+			"time": 1420,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1420
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "1899cc26-9748-41f2-9357-6be070058401",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors",
+			"time": 295,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				295
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "a80114d3-ab34-427f-b557-13cbdf25cca5",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors",
+			"time": 313,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				313
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "e1738cca-3dbf-43ba-bbc6-c4d11fd358c3",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors",
+			"time": 559,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				559
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "81697734-6bdc-4565-9681-17a2016fcae2",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
+			"time": 449,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				449
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "c603c087-e5ea-405c-a006-de72b6341300",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
+			"time": 268,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				268
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "20bf36ec-ded5-4ca7-8403-76796ef51aaa",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
+			"time": 459,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				459
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "47802f2b-8456-4514-8cdb-a3c8ef5a6f0d",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
+			"time": 290,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				290
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "9e0ec24c-0a6b-4018-9ec9-52048d001c3e",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies",
+			"time": 302,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				302
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "4877d05d-1f9a-418b-a478-2786ca77f7ba",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors",
+			"time": 281,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				281
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "12d472a6-2d63-46cc-a096-1eb672d265b9",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies",
+			"time": 300,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				300
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "96b6a16a-943c-463d-a4d7-68653f2a223b",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors",
+			"time": 338,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				338
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "443f0311-de21-41fe-9066-e919e996659d",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
+			"time": 262,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				262
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "13284618-7c2b-49bf-9b58-29f5a330ba76",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
+			"time": 270,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				270
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "460964cb-2d38-4ce9-9bab-67423d0d6cbb",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
+			"time": 294,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				294
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "555a9bbd-80e6-477b-9def-cb43137760a6",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
+			"time": 293,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				293
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "00063532-15f2-480b-8440-28a97fac3242",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies",
+			"time": 294,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				294
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "55f6f97c-6cff-412d-ab05-68445bcdc265",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors",
+			"time": 293,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				293
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "7e482617-4b07-4b63-ae80-eee65325dd72",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies",
+			"time": 291,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				291
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "de3e1343-6d39-40c6-9b1b-de58d37baa60",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors",
+			"time": 294,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				294
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "5f0c3644-d110-4197-8b09-de6db3a248e5",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
+			"time": 303,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				303
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e72d44d5-3a36-4143-8fd9-fa4ad81ba35d",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
+			"time": 300,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				300
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f8034acf-446e-44bb-bd62-bad30208d9a6",
+			"name": "/movies",
+			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
+			"time": 272,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				272
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "76c92765-a165-4972-94cf-bc50e354de9c",
+			"name": "/actors",
+			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
+			"time": 301,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				301
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 8741,
+	"collection": {
+		"requests": [
+			{
+				"id": "f3baaf6d-6892-4708-85a2-df7248239c00",
+				"method": "GET"
+			},
+			{
+				"id": "1899cc26-9748-41f2-9357-6be070058401",
+				"method": "GET"
+			},
+			{
+				"id": "a80114d3-ab34-427f-b557-13cbdf25cca5",
+				"method": "POST"
+			},
+			{
+				"id": "e1738cca-3dbf-43ba-bbc6-c4d11fd358c3",
+				"method": "POST"
+			},
+			{
+				"id": "81697734-6bdc-4565-9681-17a2016fcae2",
+				"method": "PATCH"
+			},
+			{
+				"id": "c603c087-e5ea-405c-a006-de72b6341300",
+				"method": "PATCH"
+			},
+			{
+				"id": "20bf36ec-ded5-4ca7-8403-76796ef51aaa",
+				"method": "DELETE"
+			},
+			{
+				"id": "47802f2b-8456-4514-8cdb-a3c8ef5a6f0d",
+				"method": "DELETE"
+			},
+			{
+				"id": "9e0ec24c-0a6b-4018-9ec9-52048d001c3e",
+				"method": "GET"
+			},
+			{
+				"id": "4877d05d-1f9a-418b-a478-2786ca77f7ba",
+				"method": "GET"
+			},
+			{
+				"id": "12d472a6-2d63-46cc-a096-1eb672d265b9",
+				"method": "POST"
+			},
+			{
+				"id": "96b6a16a-943c-463d-a4d7-68653f2a223b",
+				"method": "POST"
+			},
+			{
+				"id": "443f0311-de21-41fe-9066-e919e996659d",
+				"method": "PATCH"
+			},
+			{
+				"id": "13284618-7c2b-49bf-9b58-29f5a330ba76",
+				"method": "PATCH"
+			},
+			{
+				"id": "460964cb-2d38-4ce9-9bab-67423d0d6cbb",
+				"method": "DELETE"
+			},
+			{
+				"id": "555a9bbd-80e6-477b-9def-cb43137760a6",
+				"method": "DELETE"
+			},
+			{
+				"id": "00063532-15f2-480b-8440-28a97fac3242",
+				"method": "GET"
+			},
+			{
+				"id": "55f6f97c-6cff-412d-ab05-68445bcdc265",
+				"method": "GET"
+			},
+			{
+				"id": "7e482617-4b07-4b63-ae80-eee65325dd72",
+				"method": "POST"
+			},
+			{
+				"id": "de3e1343-6d39-40c6-9b1b-de58d37baa60",
+				"method": "POST"
+			},
+			{
+				"id": "5f0c3644-d110-4197-8b09-de6db3a248e5",
+				"method": "PATCH"
+			},
+			{
+				"id": "e72d44d5-3a36-4143-8fd9-fa4ad81ba35d",
+				"method": "PATCH"
+			},
+			{
+				"id": "f8034acf-446e-44bb-bd62-bad30208d9a6",
+				"method": "DELETE"
+			},
+			{
+				"id": "76c92765-a165-4972-94cf-bc50e354de9c",
+				"method": "DELETE"
+			}
+		]
+	}
+}

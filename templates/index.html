@@ -4,15 +4,159 @@
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='iconfinder_letter_H_blue_1553057.ico')}}" />
+<style>
+html{
+    padding: 60px;
+}
+h1{
+color:rgb(16, 72, 141);
+}
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.breif{
+    background-color:#F0F0F0;
+    padding: 20px;
+    border-radius: 20px;
+}
+code{
+    font-family: 'Space Mono';
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: black;
+    padding: 5px;
+}
 
-<title>Heila Al-Mogren</title>
+.GET{
+    color: rgb(21, 109, 21);
+}
+.POST{
+    color: rgb(32, 73, 176);
+}
+.PATCH{
+    color: rgb(225, 147, 31);
+}
+.DELETE{
+    color: darkred;
+}
+
+</style>
+<title>Casting Agency</title>
 </head>
-<body>
+<body style=" padding: 50px; line-height: 40px; border-left: solid black;">
 
-    <p style="margin: auto;">
-        Hi, Use the API
-    </p>
+    <h1 id="casting-agency">CASTING AGENCY</h1>
+    <hr>
+    <div class="breif">
+    <h4 id="casting-agency-api-provides-a-list-of-movies-and-actors-and-managed-by-casting-assistant-director-or-an-executive-producer.">Casting Agency API provides a list of movies and actors, and managed by Casting Assistant, Director or an Executive Producer.</h4>
+    </div>
+    <h2 id="accessing-the-environemnt">Accessing the environemnt</h2>
+    <h4 id="the-production-environment">The production environment:</h4>
+    <p>You can access the deployed version on the URL (<a href="https://heilas-casting-agency.herokuapp.com/">https://heilas-casting-agency.herokuapp.com/</a>)</p>
+    <h4 id="the-localdevelopment-environment">The local/development environment:</h4>
+    <p>first of all, you have to install the required dependencies:</p>
+    <p>1- navigate to the root folder</p>
+    <p>2- run <code> $ pip install requirements.txt</code> (or pip3).</p>
+    <p>3- After that you'll be able to run the application:<br /><br /><code> $ export FLASK_APP=app.py</code> <br /><br /><code> $ FLASK_ENV=development</code> <br /><br /><code> $ FLASK_DEBUG=true</code><br /><code> $ flask run</code></p>
+    <h3 id="roles-and-privilages">Roles and privilages</h3>
+    <p>Access of reading, editing and writing to the database is restricted to specific roles. Those roles are:</p>
+    <h4 id="casting-assistant">Casting Assistant:</h4>
+    <ul>
+    <li>GET /movies<br /></li>
+    <li>GET /actors</li>
+    </ul>
+    <h4 id="casting-director">Casting Director:</h4>
+    <ul>
+    <li>GET /movies<br /></li>
+    <li>GET /actors<br /></li>
+    <li>POST /actors<br /></li>
+    <li>PATCH /movies<br /></li>
+    <li>PATCH /actors<br /></li>
+    <li>DELETE /actors</li>
+    </ul>
+    <h4 id="executive-producer">Executive Producer:</h4>
+    <ul>
+    <li>GET /movies<br /></li>
+    <li>GET /actors<br /></li>
+    <li>POST /movies<br /></li>
+    <li>POST /actors<br /></li>
+    <li>PATCH /movies<br /></li>
+    <li>PATCH /actors<br /></li>
+    <li>DELETE /movies<br /></li>
+    <li>DELETE /actors</li>
+    </ul>
+    <h2 id="api-reference">API Reference</h2>
+    <h3 id="get-movies"><span class="GET">GET</span> /movies</h3>
+    <ul>
+    <li>returns a success flag, and the list of movies' IDs.<br /></li>
+    <li>example:<br />generate and store a jwt token in variable <code> TOKEN</code> for an assistant account, then send the GET request:</li>
+    </ul>
+    <p><code> $ curl -H 'Accept: application/json' -H &quot;Authorization: Bearer ${TOKEN}&quot;  https://heilas-casting-agency.herokuapp.com/movies</code></p>
+    <h3 id="get-actors"><span class="GET">GET</span> /actors</h3>
+    <ul>
+    <li><p>returns a success flag, and the list of actors' IDs.</p></li>
+    <li><p>example:<br />generate and store a jwt token in variable <code> TOKEN</code> for an assistant account, then send the GET request:</p></li>
+    </ul>
+    <p><code> $ curl -H 'Accept: application/json' -H &quot;Authorization: Bearer ${TOKEN}&quot;  https://heilas-casting-agency.herokuapp.com/actors</code></p>
+    <h3 id="post-movies"><span class="POST">POST</span> /movies</h3>
+    <ul>
+    <li>adds a new movie to the database.<br /></li>
+    <li>example:<br />generate and store a jwt token in variable <code> TOKEN</code> for an executive account, then send the POST request:</li>
+    </ul>
+    <p><code> $ curl -X POST -d ' {&quot;title&quot; : &quot;mission impossible&quot;,&quot;realease_date&quot; : &quot;19/12/2020&quot;}' -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/movies</code></p>
+    <h3 id="post-actors"><span class="POST">POST</span> /actors</h3>
+    <ul>
+    <li>adds a new actor to the database.<br /></li>
+    <li>example:<br />generate and store a jwt token in variable <code> TOKEN</code> for a director account, then send the POST request:</li>
+    </ul>
+    <p><code> $ curl -X POST -d ' { &quot;name&quot; : &quot;John&quot;, &quot;age&quot; : &quot;22&quot;, &quot;gender&quot; : &quot;male&quot;}' -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/movies</code></p>
+    <h3 id="patch-movies"><span class="PATCH">PATCH</span> /movies</h3>
+    <ul>
+    <li>Edits the data of a movie object in the database.<br /></li>
+    <li>example:<br />generate and store a jwt token in variable <code> TOKEN</code> for an director account, then send the POST request:</li>
+    </ul>
+    <p><code> $ curl -X PATCH -d ' {&quot;title&quot; : &quot;newer movie&quot;, &quot;realease_date&quot; : &quot;2020-12-20&quot;}' -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/movies/1</code></p>
+    <h3 id="patch-actors"><span class="PATCH">PATCH</span> /actors</h3>
+    <ul>
+    <li>Edits the data of an actor object in the database.<br /></li>
+    <li>example:<br />generate and store a jwt token in variable <code> TOKEN</code> for a director account, then send the POST request:</li>
+    </ul>
+    <p><code> $ curl -X PATCH -d ' { &quot;name&quot; : &quot;Newer John&quot;,  &quot;age&quot; : &quot;23&quot;,  &quot;gender&quot; : &quot;male&quot;}' -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/actors/1</code></p>
+    <h3 id="delete-movies"><span class="DELETE">DELELE</span> /movies</h3>
+    <ul>
+    <li>Deletes a movie from the database.<br /></li>
+    <li>Takes movie ID as an argument.<br /></li>
+    <li>Example:<br />generate and store a jwt token in variable <code> TOKEN</code> for an director account, then send the POST request:</li>
+    </ul>
+    <p><code> $ curl -X DELETE -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/movies/1</code></p>
+    <h3 id="delete-actors"><span class="DELETE">DELETE</span> /actors</h3>
+    <ul>
+    <li>Deletes a movie from the database.<br /></li>
+    <li>Takes actor ID as an argument.<br /></li>
+    <li>Example:<br />generate and store a jwt token in variable <code> TOKEN</code> for a director account, then send the POST request:</li>
+    </ul>
+    <p><code> $ curl -X DELETE -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/actors/1</code></p>
+    <h3 id="errors">Errors</h3>
+    <h4 id="not-found">404: Not Found:</h4>
+    <p>Means that the resource is currently unavailable and can't be found in the server.</p>
+    <h4 id="unprocessable">422: Unprocessable:</h4>
+    <p>Means that request is understood by the server, however for some reason it cannot be processed.</p>
+    <h4 id="bad-request">400: Bad request:</h4>
+    <p>Means that the request cannot be processed by the server due to a client side problem, such as syntax or invalid request.</p>
+    <h4 id="method-not-allowed">405: method not allowed:</h4>
+    <p>Means that the requested method is not allowed to processed to the specified resource.</p>
+    <h4 id="server-error">500: Server error:</h4>
+    <p>Means that the requested method could not be processed due to a server error problem.</p>
+    <h2 id="tests">Tests</h2>
+    <p>You can run the API test using Postman by importing the collection <code>Casting_Agency.postman_collection.json</code>.</p>
+    
 
 
 </body>
