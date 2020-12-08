@@ -7,7 +7,7 @@
 
 #### The production environment:
 
-You can access the deployed version on the URL (https://heilas-casting-agency.herokuapp.com/)[https://heilas-casting-agency.herokuapp.com/)
+You can access the deployed version on the URL (https://heilas-casting-agency.herokuapp.com/)
 
 #### The local/development environment:
 
