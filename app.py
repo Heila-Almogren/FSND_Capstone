@@ -19,6 +19,7 @@ from six.moves.urllib.parse import urlencode
 from models import *
 
 app = Flask(__name__)
+
 setup_db(app)
 CORS(app)
 oauth = OAuth(app)

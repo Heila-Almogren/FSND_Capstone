@@ -13,7 +13,12 @@ import os
 
 
 SECRET_KEY = os.urandom(32)
-basedir = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 
 DEBUG = True
@@ -22,7 +27,7 @@ db = SQLAlchemy()
 
 
 def setup_db(app):
-    app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres@localhost:5432/agency'
+    app.config["SQLALCHEMY_DATABASE_URI"] = 'postgres://wbfklsphwlmduc:c40246534cba0576044ffeacac5477c7c1452e0b033bc515cfd762ef033965e3@ec2-50-19-247-157.compute-1.amazonaws.com:5432/djebui0b714jr'
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
