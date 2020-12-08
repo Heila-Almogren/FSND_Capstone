@@ -39,6 +39,11 @@ auth0 = oauth.register(
 db_drop_and_create_all()
 
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
 @app.route('/movies', methods=['GET'])
 @requires_auth('get:movies')
 def get_movies(jwt):
