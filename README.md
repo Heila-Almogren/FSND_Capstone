@@ -57,7 +57,7 @@ Access of reading, editing and writing to the database is restricted to specific
 ### GET /movies
 * returns a success flag, and the list of movies' IDs.
 * example: 
-generate and store a jwt token in variable TOKEN for an assistant account, then send the GET request:
+generate and store a jwt token in variable ```TOKEN``` for an assistant account, then send the GET request:
 
 ```curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}"  https://heilas-casting-agency.herokuapp.com/movies ```
 
@@ -65,46 +65,53 @@ generate and store a jwt token in variable TOKEN for an assistant account, then 
 * returns a success flag, and the list of actors' IDs.
 
 * example: 
-generate and store a jwt token in variable TOKEN for an assistant account, then send the GET request:
+generate and store a jwt token in variable ```TOKEN``` for an assistant account, then send the GET request:
+
 ```curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}"  https://heilas-casting-agency.herokuapp.com/actors ```
  
 
 ### POST /movies
 * adds a new movie to the database.
 * example: 
-generate and store a jwt token in variable TOKEN for an executive account, then send the POST request:
+generate and store a jwt token in variable ```TOKEN``` for an executive account, then send the POST request:
+
 ```curl -X POST -d ' {"title" : "mission impossible","realease_date" : "19/12/2020"}' -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/movies ```
 
 ### POST /actors
 * adds a new actor to the database.
 * example: 
-generate and store a jwt token in variable TOKEN for a director account, then send the POST request:
+generate and store a jwt token in variable ```TOKEN``` for a director account, then send the POST request:
+
 ```curl -X POST -d ' { "name" : "John", "age" : "22", "gender" : "male"}' -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/movies ```
 
 ### PATCH /movies
 * Edits the data of a movie object in the database.
 * example: 
-generate and store a jwt token in variable TOKEN for an director account, then send the POST request:
+generate and store a jwt token in variable ```TOKEN``` for an director account, then send the POST request:
+
 ```curl -X PATCH -d ' {"title" : "newer movie", "realease_date" : "2020-12-20"}' -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/movies/1 ```
 
 ### PATCH /actors
 * Edits the data of an actor object in the database.
 * example: 
-generate and store a jwt token in variable TOKEN for a director account, then send the POST request:
+generate and store a jwt token in variable ```TOKEN``` for a director account, then send the POST request:
+
 ```curl -X PATCH -d ' { "name" : "Newer John",  "age" : "23",  "gender" : "male"}' -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/actors/1```
 
 ### DELETE /movies
 * Deletes a movie from the database.
 * Takes movie ID as an argument.
 * Example: 
-generate and store a jwt token in variable TOKEN for an director account, then send the POST request:
+generate and store a jwt token in variable ```TOKEN``` for an director account, then send the POST request:
+
 ```curl -X DELETE -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/movies/1 ```
 
 ### DELETE /actors
 * Deletes a movie from the database.
 * Takes actor ID as an argument.
 * Example: 
-generate and store a jwt token in variable TOKEN for a director account, then send the POST request:
+generate and store a jwt token in variable ```TOKEN``` for a director account, then send the POST request:
+
 ```curl -X DELETE -H 'Authorization: Bearer ${TOKEN}' http://heilas-casting-agency.herokuapp.com/actors/1```
 
 ### Errors
@@ -120,4 +127,4 @@ Means that the requested method is not allowed to processed to the specified res
 Means that the requested method could not be processed due to a server error problem.
 
 ## Tests
-You can run test the application by running the unit test file using ```Python3 test_flaskr.py```.
+You can run the API test using Postman by importing the collection ```Casting_Agency.postman_collection.json```.
