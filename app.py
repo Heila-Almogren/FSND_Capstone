@@ -1,27 +1,38 @@
-import os
-from flask import Flask, request, jsonify, abort, redirect
-from sqlalchemy import exc
+
+from flask import Flask, request, jsonify, abort, redirect, render_template, session, url_for, request, Response
+from sqlalchemy import *
 import json
+import datetime
 from flask_cors import CORS
+from flask_migrate import Migrate
 from auth import *
 from functools import wraps
 import json
 from os import environ as env
 from werkzeug.exceptions import HTTPException
-
-from dotenv import load_dotenv, find_dotenv
-
-from flask import render_template
-from flask import session
-from flask import url_for
 from authlib.integrations.flask_client import OAuth
 from six.moves.urllib.parse import urlencode
 from models import *
 
 app = Flask(__name__)
 
-setup_db(app)
-CORS(app)
+# setup_db(app)
+# CORS(app)
+
+ENV = 'prod'
+
+if ENV == 'dev':
+    app.debug = True
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@localhost:5432/agency'
+else:
+    app.debug = False
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://wbfklsphwlmduc:c40246534cba0576044ffeacac5477c7c1452e0b033bc515cfd762ef033965e3@ec2-50-19-247-157.compute-1.amazonaws.com:5432/djebui0b714jr'
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+
 oauth = OAuth(app)
 
 auth0 = oauth.register(
@@ -37,7 +48,44 @@ auth0 = oauth.register(
 )
 
 
-db_drop_and_create_all()
+# db_drop_and_create_all()
+
+
+class Movie(db.Model):
+    __tablename__ = 'Movie'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String)
+    release_date = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+
+class Actor(db.Model):
+    __tablename__ = 'Actor'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    age = db.Column(db.Integer)
+    gender = db.Column(db.String)
+
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
 
 
 @app.route('/')
@@ -409,3 +457,7 @@ def Auth_Error(error):
         "error": 401,
         "message": "Authentication error"
     }), 401
+
+
+if __name__ == '__main__':
+    app.run()
