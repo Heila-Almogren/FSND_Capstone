@@ -14,10 +14,11 @@ from authlib.integrations.flask_client import OAuth
 from six.moves.urllib.parse import urlencode
 from models import *
 
+
 app = Flask(__name__)
 
-# setup_db(app)
-# CORS(app)
+
+# Configuring Environment
 
 ENV = 'prod'
 
@@ -33,8 +34,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-oauth = OAuth(app)
+# Configuring Auth0 Credentials
 
+oauth = OAuth(app)
 auth0 = oauth.register(
     'auth0',
     client_id='6GgkbfV45KVhO5kc6jq3Ot7itvpXW98j',
@@ -48,9 +50,7 @@ auth0 = oauth.register(
 )
 
 
-# db_drop_and_create_all()
-
-
+# Database Models
 class Movie(db.Model):
     __tablename__ = 'Movie'
     id = db.Column(db.Integer, primary_key=True)
@@ -88,8 +88,14 @@ class Actor(db.Model):
         db.session.commit()
 
 
+# Endpoints
+
 @app.route('/')
 def index():
+    """
+    Returns:
+        The main page
+    """
     return render_template('index.html')
 
 
@@ -312,11 +318,18 @@ def delete_actor(jwt, id):
             'success': False,
         })
 
+
 # Error Handling
 
 
 @app.errorhandler(422)
 def unprocessable(error):
+    """
+
+    returns:
+        handling for 422 (unprocessable) Error
+
+    """
     return jsonify({
         "success": False,
         "error": 422,
@@ -418,29 +431,6 @@ def Duplicate_resource(error):
         "error": 409,
         "message": "Duplicate resource"
     }), 409
-
-
-'''
-@TODO implement error handlers using the @app.errorhandler(error) decorator
-    each error handler should return (with approprate messages):
-             jsonify({
-                    "success": False, 
-                    "error": 404,
-                    "message": "resource not found"
-                    }), 404
-
-'''
-
-'''
-@TODO implement error handler for 404
-    error handler should conform to general task above 
-'''
-
-
-'''
-@TODO implement error handler for AuthError
-    error handler should conform to general task above 
-'''
 
 
 @app.errorhandler(AuthError)
