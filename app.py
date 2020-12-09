@@ -18,6 +18,7 @@ from models import *
 app = Flask(__name__)
 app.config.from_object('config')
 db.init_app(app)
+migrate = Migrate(app, db)
 
 
 # Configuring Auth0 Credentials
