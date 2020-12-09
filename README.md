@@ -1,7 +1,5 @@
 # Casting Agency
 
-### Motivation
-
 #### This project is my capstone project of Udacity Full Stack Nano Degree. My main motivation behind it to learn backend web development, relational database sytems, APIs, and deployment using Flask, PostgreSQ and Auth0.
 
 ### Intro
