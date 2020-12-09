@@ -17,6 +17,7 @@ from models import *
 
 app = Flask(__name__)
 
+db.init_app(app)
 
 # Configuring Environment
 
@@ -30,8 +31,6 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://wbfklsphwlmduc:c40246534cba0576044ffeacac5477c7c1452e0b033bc515cfd762ef033965e3@ec2-50-19-247-157.compute-1.amazonaws.com:5432/djebui0b714jr'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
 
 
 # Configuring Auth0 Credentials
@@ -48,44 +47,6 @@ auth0 = oauth.register(
         'scope': 'openid profile email',
     },
 )
-
-
-# Database Models
-class Movie(db.Model):
-    __tablename__ = 'Movie'
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String)
-    release_date = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-
-    def insert(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-
-    def update(self):
-        db.session.commit()
-
-
-class Actor(db.Model):
-    __tablename__ = 'Actor'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
-    age = db.Column(db.Integer)
-    gender = db.Column(db.String)
-
-    def insert(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-
-    def update(self):
-        db.session.commit()
 
 
 # Endpoints
