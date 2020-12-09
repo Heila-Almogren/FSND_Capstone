@@ -1,6 +1,6 @@
 # Casting Agency
 
-#### Casting Agency API provides a list of movies and actors, and managed by Casting Assistant, Director or an Executive Producer.
+#### Casting Agency API is used to store data about different movies and actors and enables cast team to access and edit those data based on their privilages. For example, while a casting assistant can view the list of all movies and actors, a director -for example- can edit/update any information if neccessary, and the executive producer can have a full access to view, add edit or delete any movie or actor.
 
 
 ## Accessing the environemnt
