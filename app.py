@@ -16,21 +16,8 @@ from models import *
 
 
 app = Flask(__name__)
-
+app.config.from_object('config')
 db.init_app(app)
-
-# Configuring Environment
-
-ENV = 'prod'
-
-if ENV == 'dev':
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@localhost:5432/agency'
-else:
-    app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://wbfklsphwlmduc:c40246534cba0576044ffeacac5477c7c1452e0b033bc515cfd762ef033965e3@ec2-50-19-247-157.compute-1.amazonaws.com:5432/djebui0b714jr'
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
 # Configuring Auth0 Credentials

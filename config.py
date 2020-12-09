@@ -14,3 +14,17 @@ STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+
+# Configuring Environment
+
+ENV = 'prod'
+
+if ENV == 'dev':
+    BEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres@localhost:5432/agency'
+else:
+    BEBUG = False
+    SQLALCHEMY_DATABASE_URI = 'postgres://wbfklsphwlmduc:c40246534cba0576044ffeacac5477c7c1452e0b033bc515cfd762ef033965e3@ec2-50-19-247-157.compute-1.amazonaws.com:5432/djebui0b714jr'
+
+SQLALCHEMY_TRACK_MODIFICATIONS = False
