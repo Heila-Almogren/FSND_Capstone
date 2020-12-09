@@ -1,13 +1,7 @@
 from flask import Flask, request, jsonify, render_template, request
 from sqlalchemy import *
-import json
-import datetime
-from flask_cors import CORS
 from flask_migrate import Migrate
 from auth import *
-from functools import wraps
-import json
-from os import environ as env
 from werkzeug.exceptions import HTTPException
 from authlib.integrations.flask_client import OAuth
 from six.moves.urllib.parse import urlencode
