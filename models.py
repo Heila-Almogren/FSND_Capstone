@@ -16,6 +16,14 @@ from sqlalchemy.sql import case
 db = SQLAlchemy()
 
 
+def setup_db(app, database_path):
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.app = app
+    db.init_app(app)
+    db.create_all()
+
+
 # Database Models
 class Movie(db.Model):
     __tablename__ = 'Movie'

@@ -18,7 +18,7 @@ STATICFILES_DIRS = (
 
 # Configuring Environment
 
-ENV = 'prod'
+ENV = 'dev'
 
 if ENV == 'dev':
     BEBUG = True

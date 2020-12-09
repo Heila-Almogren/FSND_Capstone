@@ -1,7 +1,7 @@
 {
-	"id": "9a3dbebb-28de-40ac-81fd-fd9478feea0b",
+	"id": "fe2fc079-65b0-4127-8e21-e6b12bcfb3ea",
 	"name": "Casting_Agency-Tests",
-	"timestamp": "2020-12-08T21:00:58.721Z",
+	"timestamp": "2020-12-09T15:30:15.170Z",
 	"collection_id": "ce58fe55-a8fe-47ab-91d5-a36aa54d5d4a",
 	"folder_id": 0,
 	"environment_id": "0",
@@ -12,7 +12,7 @@
 			"id": "f3baaf6d-6892-4708-85a2-df7248239c00",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies",
-			"time": 1420,
+			"time": 19796,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -27,7 +27,7 @@
 				}
 			},
 			"times": [
-				1420
+				19796
 			],
 			"allTests": [
 				{
@@ -39,7 +39,7 @@
 			"id": "1899cc26-9748-41f2-9357-6be070058401",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors",
-			"time": 295,
+			"time": 1426,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -54,7 +54,7 @@
 				}
 			},
 			"times": [
-				295
+				1426
 			],
 			"allTests": [
 				{
@@ -66,7 +66,7 @@
 			"id": "a80114d3-ab34-427f-b557-13cbdf25cca5",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors",
-			"time": 313,
+			"time": 686,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -81,7 +81,7 @@
 				}
 			},
 			"times": [
-				313
+				686
 			],
 			"allTests": [
 				{
@@ -93,7 +93,7 @@
 			"id": "e1738cca-3dbf-43ba-bbc6-c4d11fd358c3",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors",
-			"time": 559,
+			"time": 391,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -108,7 +108,7 @@
 				}
 			},
 			"times": [
-				559
+				391
 			],
 			"allTests": [
 				{
@@ -120,7 +120,7 @@
 			"id": "81697734-6bdc-4565-9681-17a2016fcae2",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
-			"time": 449,
+			"time": 691,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -135,7 +135,7 @@
 				}
 			},
 			"times": [
-				449
+				691
 			],
 			"allTests": [
 				{
@@ -147,7 +147,7 @@
 			"id": "c603c087-e5ea-405c-a006-de72b6341300",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
-			"time": 268,
+			"time": 337,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -162,7 +162,7 @@
 				}
 			},
 			"times": [
-				268
+				337
 			],
 			"allTests": [
 				{
@@ -174,7 +174,7 @@
 			"id": "20bf36ec-ded5-4ca7-8403-76796ef51aaa",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
-			"time": 459,
+			"time": 365,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -189,7 +189,7 @@
 				}
 			},
 			"times": [
-				459
+				365
 			],
 			"allTests": [
 				{
@@ -201,7 +201,7 @@
 			"id": "47802f2b-8456-4514-8cdb-a3c8ef5a6f0d",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
-			"time": 290,
+			"time": 503,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -216,7 +216,7 @@
 				}
 			},
 			"times": [
-				290
+				503
 			],
 			"allTests": [
 				{
@@ -228,7 +228,7 @@
 			"id": "9e0ec24c-0a6b-4018-9ec9-52048d001c3e",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies",
-			"time": 302,
+			"time": 494,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -243,7 +243,7 @@
 				}
 			},
 			"times": [
-				302
+				494
 			],
 			"allTests": [
 				{
@@ -255,7 +255,7 @@
 			"id": "4877d05d-1f9a-418b-a478-2786ca77f7ba",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors",
-			"time": 281,
+			"time": 414,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -270,7 +270,7 @@
 				}
 			},
 			"times": [
-				281
+				414
 			],
 			"allTests": [
 				{
@@ -282,7 +282,7 @@
 			"id": "12d472a6-2d63-46cc-a096-1eb672d265b9",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies",
-			"time": 300,
+			"time": 471,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -297,7 +297,7 @@
 				}
 			},
 			"times": [
-				300
+				471
 			],
 			"allTests": [
 				{
@@ -309,7 +309,7 @@
 			"id": "96b6a16a-943c-463d-a4d7-68653f2a223b",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors",
-			"time": 338,
+			"time": 404,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -324,7 +324,7 @@
 				}
 			},
 			"times": [
-				338
+				404
 			],
 			"allTests": [
 				{
@@ -336,7 +336,7 @@
 			"id": "443f0311-de21-41fe-9066-e919e996659d",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
-			"time": 262,
+			"time": 396,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -351,7 +351,7 @@
 				}
 			},
 			"times": [
-				262
+				396
 			],
 			"allTests": [
 				{
@@ -363,7 +363,7 @@
 			"id": "13284618-7c2b-49bf-9b58-29f5a330ba76",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
-			"time": 270,
+			"time": 374,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -378,7 +378,7 @@
 				}
 			},
 			"times": [
-				270
+				374
 			],
 			"allTests": [
 				{
@@ -390,7 +390,7 @@
 			"id": "460964cb-2d38-4ce9-9bab-67423d0d6cbb",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
-			"time": 294,
+			"time": 457,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -405,7 +405,7 @@
 				}
 			},
 			"times": [
-				294
+				457
 			],
 			"allTests": [
 				{
@@ -417,7 +417,7 @@
 			"id": "555a9bbd-80e6-477b-9def-cb43137760a6",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
-			"time": 293,
+			"time": 352,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -432,7 +432,7 @@
 				}
 			},
 			"times": [
-				293
+				352
 			],
 			"allTests": [
 				{
@@ -444,7 +444,7 @@
 			"id": "00063532-15f2-480b-8440-28a97fac3242",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies",
-			"time": 294,
+			"time": 322,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -459,7 +459,7 @@
 				}
 			},
 			"times": [
-				294
+				322
 			],
 			"allTests": [
 				{
@@ -471,7 +471,7 @@
 			"id": "55f6f97c-6cff-412d-ab05-68445bcdc265",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors",
-			"time": 293,
+			"time": 334,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -486,7 +486,7 @@
 				}
 			},
 			"times": [
-				293
+				334
 			],
 			"allTests": [
 				{
@@ -498,7 +498,7 @@
 			"id": "7e482617-4b07-4b63-ae80-eee65325dd72",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies",
-			"time": 291,
+			"time": 350,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -513,7 +513,7 @@
 				}
 			},
 			"times": [
-				291
+				350
 			],
 			"allTests": [
 				{
@@ -525,7 +525,7 @@
 			"id": "de3e1343-6d39-40c6-9b1b-de58d37baa60",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors",
-			"time": 294,
+			"time": 379,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -540,7 +540,7 @@
 				}
 			},
 			"times": [
-				294
+				379
 			],
 			"allTests": [
 				{
@@ -552,7 +552,7 @@
 			"id": "5f0c3644-d110-4197-8b09-de6db3a248e5",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
-			"time": 303,
+			"time": 536,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -567,7 +567,7 @@
 				}
 			},
 			"times": [
-				303
+				536
 			],
 			"allTests": [
 				{
@@ -579,7 +579,7 @@
 			"id": "e72d44d5-3a36-4143-8fd9-fa4ad81ba35d",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
-			"time": 300,
+			"time": 361,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -594,7 +594,7 @@
 				}
 			},
 			"times": [
-				300
+				361
 			],
 			"allTests": [
 				{
@@ -606,7 +606,7 @@
 			"id": "f8034acf-446e-44bb-bd62-bad30208d9a6",
 			"name": "/movies",
 			"url": "https://heilas-casting-agency.herokuapp.com/movies/1",
-			"time": 272,
+			"time": 411,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -621,7 +621,7 @@
 				}
 			},
 			"times": [
-				272
+				411
 			],
 			"allTests": [
 				{
@@ -633,7 +633,7 @@
 			"id": "76c92765-a165-4972-94cf-bc50e354de9c",
 			"name": "/actors",
 			"url": "https://heilas-casting-agency.herokuapp.com/actors/1",
-			"time": 301,
+			"time": 543,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -648,7 +648,7 @@
 				}
 			},
 			"times": [
-				301
+				543
 			],
 			"allTests": [
 				{
@@ -658,7 +658,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 8741,
+	"totalTime": 30793,
 	"collection": {
 		"requests": [
 			{
