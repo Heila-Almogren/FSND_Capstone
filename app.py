@@ -1,4 +1,3 @@
-
 from flask import Flask, request, jsonify, abort, redirect, render_template, session, url_for, request, Response
 from sqlalchemy import *
 import json
@@ -274,10 +273,8 @@ def delete_actor(jwt, id):
 @app.errorhandler(422)
 def unprocessable(error):
     """
-
     returns:
         handling for 422 (unprocessable) Error
-
     """
     return jsonify({
         "success": False,
@@ -289,10 +286,8 @@ def unprocessable(error):
 @app.errorhandler(404)
 def not_found(error):
     """
-
     returns:
         handling for 404 (Not found) Error
-
     """
 
     return jsonify({
@@ -305,10 +300,8 @@ def not_found(error):
 @app.errorhandler(400)
 def Bad_request(error):
     """
-
     returns:
         handling for 400 (Bad request) Error
-
     """
 
     return jsonify({
@@ -321,10 +314,8 @@ def Bad_request(error):
 @app.errorhandler(405)
 def method_not_allowed(error):
     """
-
     returns:
         handling for 405 (method not allowed) Error
-
     """
 
     return jsonify({
@@ -337,10 +328,8 @@ def method_not_allowed(error):
 @app.errorhandler(500)
 def Server_error(error):
     """
-
     returns:
         handling for 500 (Server error) Error
-
     """
 
     return jsonify({
@@ -353,10 +342,8 @@ def Server_error(error):
 @app.errorhandler(403)
 def forbidden(error):
     """
-
     returns:
         handling for 403 (forbidden) Error
-
     """
 
     return jsonify({
@@ -369,10 +356,8 @@ def forbidden(error):
 @app.errorhandler(409)
 def Duplicate_resource(error):
     """
-
     returns:
         handling for 409 (Duplicate resource) Error
-
     """
 
     return jsonify({
@@ -385,10 +370,8 @@ def Duplicate_resource(error):
 @app.errorhandler(AuthError)
 def Auth_Error(error):
     """
-
     returns:
         handling for 401 (Authentication error) Error
-
     """
 
     return jsonify({
